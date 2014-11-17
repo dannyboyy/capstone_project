@@ -10,6 +10,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @company = Company.find(params[:id])
   end
 
   # GET /companies/new
@@ -19,6 +20,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    @company = Company.find(params[:id])
   end
 
   # POST /companies
@@ -31,8 +33,8 @@ class CompaniesController < ApplicationController
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else
-        format.html { render :new }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
+        flash[:error] = "There was an error saving the company. Please try again."
+        render :new
       end
     end
   end

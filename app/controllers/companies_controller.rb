@@ -30,8 +30,8 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render :show, status: :created, location: @company }
+        flash[:notice] = 'Company was successfully created.'
+        redirect_to @company
       else
         flash[:error] = "There was an error saving the company. Please try again."
         render :new
@@ -42,14 +42,12 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
-    respond_to do |format|
-      if @company.update(company_params)
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
-        format.json { render :show, status: :ok, location: @company }
-      else
-        format.html { render :edit }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
+    if @company.update(company_params)
+      flash[:notice] = 'Company was successfully created.'
+      redirect_to @company
+    else
+      flash[:error] = "There was an error updating the company. Please try again."
+      render :new
     end
   end
 

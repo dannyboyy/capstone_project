@@ -9,7 +9,11 @@
         </div>
       </div>          
       <div class="panel-body">
-        <%= company.description %>
+        <%= company.description %></br>
+        <small>
+         submitted <%= time_ago_in_words(company.created_at) %> ago by <%= company.user.name %><br/>
+         <%= company.comments.count %> Comments
+        </small>
       </div>
     </div>
   <% end %>

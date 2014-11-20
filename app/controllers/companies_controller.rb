@@ -26,9 +26,8 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
-    @company = Company.new(company_params)
+    @company = current_user.companies.build(company_params)
 
-    respond_to do |format|
       if @company.save
         flash[:notice] = 'Company was successfully created.'
         redirect_to @company
@@ -36,7 +35,6 @@ class CompaniesController < ApplicationController
         flash[:error] = "There was an error saving the company. Please try again."
         render :new
       end
-    end
   end
 
   # PATCH/PUT /companies/1

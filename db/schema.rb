@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118005612) do
+ActiveRecord::Schema.define(version: 20141119235646) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 20141118005612) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name"
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

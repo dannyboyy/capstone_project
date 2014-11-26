@@ -32,6 +32,7 @@
                 <% else %>
                   <li><%= link_to "Sign In", new_user_session_path %></li>
                   <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                  <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
                 <% end %>
             </ul>
           </div><!--/.nav-collapse -->
@@ -56,7 +57,22 @@
    </div>
  <% end %>
 
-  <%= yield %>
+<%= yield %>
+
+<!-- Use Disqus for social comments -->
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'capstoneproject'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+>>>>>>> social-sign-in
 
 </body>
 </html>

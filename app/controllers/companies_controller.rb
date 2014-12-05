@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
+    authorize @companies
   end
 
   # GET /companies/1
@@ -17,18 +18,20 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    authorize @company
   end
 
   # GET /companies/1/edit
   def edit
     @company = Company.find(params[:id])
+    authorize @company
   end
 
   # POST /companies
   # POST /companies.json
   def create
     @company = current_user.companies.build(company_params)
-
+    authorize @company
       if @company.save
         flash[:notice] = 'Company was successfully created.'
         redirect_to @company
@@ -41,6 +44,7 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
+    authorize @company
     if @company.update(company_params)
       flash[:notice] = 'Company was successfully created.'
       redirect_to @company

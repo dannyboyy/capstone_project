@@ -11,6 +11,7 @@ gem 'faker'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'pundit'
 
 group :production do
   gem 'pg'

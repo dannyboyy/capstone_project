@@ -25,4 +25,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  # This method looks up a user's role and determines if the user role is "admin", "moderator"
+  def admin?
+    role == "admin"
+  end
+
+  def moderator?
+    role == "moderator"
+  end
+
+
+
 end

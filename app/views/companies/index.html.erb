@@ -1,14 +1,14 @@
 <div class="container">
-  <%= form_tag companies_path, class: "form-inline", :method => :get do %>
-    <% if params[:query].present? %>
-      <div class="input-group-btn">
-        <%= link_to "clear", companies_path, class: "btn btn-default" %>
-      </div>
-    <% end %>
+  <%= form_tag companies_path, class: "input-group input-group-lg", :method => :get do %>
     <%= text_field_tag :query, params[:query], class: "form-control" %>
     <div class="input-group-btn">
       <%= submit_tag "Search", class: "btn btn-primary" %>
     </div>
+    <% if params[:query].present? %>
+      <div class="input-group-btn" id="clear">
+        <%= link_to "clear", companies_path, class: "btn btn-default" %>
+      </div>
+    <% end %>
   <% end %>
   
   <% @companies.each do |company| %>

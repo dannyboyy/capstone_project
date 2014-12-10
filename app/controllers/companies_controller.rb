@@ -2,10 +2,17 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show, :index]
 
+  def autocomplete
+    render json: Company.search(params[:query], autocomplete: true, limit:10).map(&:name)
+  end
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    if params[:query].present?
+      @companies = Company.search(params[:query])
+    else
+      @companies = Company.all
+    end
     authorize @companies
   end
 

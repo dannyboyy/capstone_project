@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'pundit'
+gem 'searchkick'
 
 group :production do
   gem 'pg'

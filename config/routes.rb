@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   resources :comments
   
   resources :companies do
-    collection do
-      get :autocomplete
+    member do 
+      put "like", to: "companies#upvote"
+      put "dislike", to: "companies#downvote"
     end
   end
 
   root 'companies#index'
-
-
+  
 end

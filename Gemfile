@@ -13,6 +13,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'pundit'
 gem 'searchkick'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :production do
   gem 'pg'

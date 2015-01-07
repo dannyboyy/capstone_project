@@ -10,6 +10,19 @@
   </div>
 <% end %>
 
+<div class="btn-group pull-right">
+  <%= link_to like_company_path(@company), method: :put, class: "btn btn-default btn-sm" do %>
+    <span class="glyphicon glyphicon-chevron-up"></span>
+    Upvote
+    <%= @company.get_upvotes.size %>
+  <% end %>
+  <%= link_to dislike_company_path(@company), method: :put, class: "btn btn-default btn-sm" do %>
+    <span class="glyphicon glyphicon-chevron-down">
+    Downvote
+    <%= @company.get_downvotes.size %>
+  <% end %>
+</div>
+
  <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :companies do
     collection do
-      get 'autocomplete'
+      get :autocomplete
     end
   end
 

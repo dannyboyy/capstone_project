@@ -14,5 +14,12 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree .
+//= require typeahead
+
+$(function() {
+  $('#company_search').typeahead({
+    name:    'titles',
+    prefetch: '/companies/autocomplete.json'
+  });
+});
 

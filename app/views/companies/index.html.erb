@@ -1,6 +1,6 @@
 <div class="container">
   <%= form_tag companies_path, class: "input-group input-group-lg", :method => :get do %>
-    <%= text_field_tag :query, params[:query], class: "form-control" %>
+    <%= text_field_tag :query, params[:query], class: "form-control", id: "company_search", :'data-provide' => 'typeahead' %>
     <div class="input-group-btn">
       <%= submit_tag "Search", class: "btn btn-primary" %>
     </div>
@@ -10,7 +10,7 @@
       </div>
     <% end %>
   <% end %>
-  
+
   <% @companies.each do |company| %>
     <div class="panel panel-warning">
       <div class="panel-heading">
@@ -28,4 +28,5 @@
     </div>
   <% end %>
 </div>
+
 

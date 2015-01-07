@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
   #use searchkick to search this model
-  searchkick
+  searchkick autocomplete: ['name']
 
   has_many :comments
   belongs_to :user

@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
   acts_as_votable
 
   #use searchkick to search this model
-  searchkick autocomplete: ['name']
+  searchkick
 
   has_many :comments
   belongs_to :user

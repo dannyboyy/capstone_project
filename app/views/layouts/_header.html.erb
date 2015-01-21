@@ -28,15 +28,7 @@
         <% end %>
       </ul>
 
-      <%= form_tag companies_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-        <p>
-          <%= text_field_tag :query, params[:query], class: "form-control" %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-          <% if params[:query].present? %>
-            <%= link_to "Clear", companies_path, class: "btn btn-default" %>
-          <% end %>
-        </p>
-      <% end %>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

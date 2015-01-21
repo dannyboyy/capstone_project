@@ -1,8 +1,24 @@
+
+
+
   <div class="col-md-10 col-md-offset-1">
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3>Trending on CAPSTONE</h3>
+            <%= form_tag companies_path, method: :get, class: "form-inline" do %>
+              <div class="input-group input-group-lg">
+                <% if params[:query].present? %>
+                  <div class="input-group-btn">
+                    <%= link_to "Clear", companies_path, class: "btn btn-default" %>
+                  </div>
+                <% else %>
+                  <%= text_field_tag :query, params[:query], class: "form-control", id: "company_search", autocomplete: "off" %>
+                <% end %>
+                <div class="input-group-btn">
+                  <%= submit_tag "Search", class: "btn btn-primary" %>
+                </div>
+              </div>
+            <% end %>
         </div>
         <div class="panel-body">
             <% @companies.each do |company| %>
@@ -31,6 +47,5 @@
       </div>
     </div>
   </div>
-
   
 
